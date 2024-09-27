@@ -1,0 +1,5 @@
+name: ShardanaLeaderboard
+version: '1.0'
+main: dev.sodiograaz.shardanaLeaderboard.ShardanaLeaderboard
+api-version: '1.20'
+authors: [ Gabriel ]
