@@ -70,7 +70,8 @@ public class KillsHologramTask implements Runnable
 		var page = hologram.getPage(0);
 		
 		// Header
-		page.addLine(new HologramLine(page, location, MiniMessage.miniMessage().escapeTags(header)));
+		page.addLine(new HologramLine(page, location, MiniMessage.miniMessage().escapeTags(header.replaceAll("%total_war_kills%", String.valueOf(ShardanaLeaderboard.getLeaderboardStorage()
+				.getKillsManager().getTotalKillsOfAllPlayers())))));
 
 		// Data Handling
 		List<String> usernames = new ArrayList<>(data.keySet());
@@ -90,8 +91,8 @@ public class KillsHologramTask implements Runnable
 			}
 		}
 		
-		
 		// Footer
-		page.addLine(new HologramLine(page, location, MiniMessage.miniMessage().escapeTags(footer)));
+		page.addLine(new HologramLine(page, location, MiniMessage.miniMessage().escapeTags(footer.replaceAll("%total_war_kills%", String.valueOf(ShardanaLeaderboard.getLeaderboardStorage()
+				.getKillsManager().getTotalKillsOfAllPlayers())))));
 	}
 }

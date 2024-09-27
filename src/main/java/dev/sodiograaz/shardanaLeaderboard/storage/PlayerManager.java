@@ -15,7 +15,6 @@ public class PlayerManager
 {
 
 	private final Connection connection;
-	private final String pluginMode = ShardanaLeaderboard.getPluginMode();
 	
 	public PlayerManager(Connection connection)
 	{
@@ -24,7 +23,6 @@ public class PlayerManager
 	
 	public void createPlayer(Player player)
 	{
-		if(pluginMode.equals("pull")) return;
 		if(this.playerAlreadyRegistered(player.getUniqueId().toString())) return;
 		synchronized (connection)
 		{
@@ -55,7 +53,6 @@ public class PlayerManager
 	
 	public void updatePlayerUsername(String uuid, String username)
 	{
-		if(pluginMode.equals("pull")) return;
 		var previous = getPlayer(uuid);
 		if(previous.getDataValue().equals(username)) return;
 		synchronized (connection)

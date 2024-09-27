@@ -115,5 +115,19 @@ public class KillsManager
 		return false;
 	}
 	
+	public long getTotalKillsOfAllPlayers()
+	{
+		long q = 0;
+		synchronized (connection)
+		{
+			var data = getAllPlayerKills();
+			for(var x : data.entrySet())
+			{
+				q = q + x.getValue();
+			}
+		}
+		return q;
+	}
+	
 
 }
